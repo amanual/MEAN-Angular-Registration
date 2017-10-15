@@ -1,0 +1,13 @@
+td .ng-invalid {
+    /* color: red; */
+    border-color:  red;
+}
+
+td .ng-valid {
+    /* color: green; */
+    border-color : green;
+
+}
+p{
+    color: green;
+}

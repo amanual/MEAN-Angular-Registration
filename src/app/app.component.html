@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registration Form</title>
+</head>
+<body>
+<h2>Registration</h2>
+<!-- <p >{{ user.email }}</p> -->
+ 
+<div>
+  
+  <form (submit) ="onSubmit()"> 
+    <p >{{ thanks }}</p>
+    <p>{{ wish }}</p>
+      <table>
+        <tr>
+          <td>*First Name: </td>
+          <td>
+            <input 
+              type="text"
+              name="firstName"
+              required
+              minlength="2"
+              maxlength="24"
+              [(ngModel)] = "user.firstName"
+              #firstName = "ngModel">
+          </td>
+          <td *ngIf="!firstName.valid">first lame is required</td>
+        </tr>        
+        <tr>
+          <td>*Last Name: </td>
+          <td>
+            <input 
+              type="text" 
+              name="lastName"
+              required
+              minlength="2"
+              maxlength="24"
+              [(ngModel)] = "user.lastName"
+              #lastName = "ngModel">              
+          </td>
+          <td class="invalid"  *ngIf="!lastName.valid">last name is required</td>
+        </tr>
+        <tr>
+          <td>*Email: </td>
+          <td>
+            <input 
+              type="email" 
+              name="email"
+              required
+              minlength="2"
+              maxlength="24"
+              [(ngModel)] = "user.email"
+              #email = "ngModel" >
+          </td>
+          <td class="invalid" *ngIf="!email.valid">email is required</td>
+        </tr>
+        <tr>
+          <td>*Password: </td>
+          <td>
+            <input 
+              type="text" 
+              name="password"
+              required
+              minlength="8"
+              maxlength="24"
+              pattern="^([a-zA-Z0-9@*#]{8,15})$"
+              [(ngModel)] = "user.password"
+              #password = "ngModel">
+          </td>
+          <td class="invalid" *ngIf="!password.valid">password is required</td>
+        </tr>
+        <tr>
+          <td>*Confirm Password: </td>
+          <td>
+            <input 
+              type="text" 
+              name="password_conf"              
+              required
+              minlength="8"
+              maxlength="24"
+              pattern="^([a-zA-Z0-9@*#]{8,15})$"
+              [(ngModel)] = "user.password_conf"
+              #password_conf = "ngModel">
+          </td>
+          <td class="invalid" *ngIf="!password_conf.valid">password confirmation is required</td>
+        </tr>
+        <tr>
+          <td>*Birth Date: </td>
+          <td>
+            <input 
+              type="date" 
+              name="birthday"
+              required              
+              [(ngModel)] = "user.birthday"
+              #birthday = "ngModel">
+          </td>
+          <td class="invalid" *ngIf="!birthday.valid">birthday is required</td>
+        </tr>
+        <tr>
+          <td>*Street Address: </td>
+          <td>
+            <input 
+              type="text" 
+              name="street"
+              required
+              minlength="2"
+              maxlength="24"
+              [(ngModel)] = "user.street"
+              #street = "ngModel">
+          </td>
+          <td class="invalid" *ngIf="!street.valid">street name is required</td>
+        </tr>
+        <tr>
+          <td>Unit/Apt #: </td>
+          <td>
+            <input 
+              type="number" name="unit">
+          </td>
+        </tr>
+        <tr>
+          <td>*City: </td>
+          <td>
+            <input 
+              type="text" 
+              name="city"
+              required
+              minlength="2"
+              maxlength="24"
+              [(ngModel)] = "user.city"
+              #city = "ngModel">
+          </td>
+          <td class="invalid" *ngIf="!city.valid">city name is required</td>
+        </tr>
+       <tr>
+          <td>*State: </td>
+          <td>
+            <select 
+              name="state"
+              required              
+              [(ngModel)] = "user.state"
+              #state = "ngModel">
+            <option value="" >Select</option>
+            <option value="VA">VA</option>
+            <option value="MD">MD</option>
+            <option value="CA">CA</option>
+            </select>
+          </td>
+          <td class="invalid" *ngIf="!state.valid">state name is required</td>
+        </tr>
+        <tr>
+          <td>*I'm feeling lucky: </td>
+          <td>
+            <input 
+              type="radio" 
+              value="yes"
+              name="radio"
+              checked
+              required              
+              [(ngModel)] = "user.radio"
+              #radio = "ngModel">Yes          
+          
+            <input 
+              type="radio" 
+              value="no" 
+              name="radio"                            
+              [(ngModel)] = "user.radio"
+              #radio = "ngModel">No
+          </td>
+          <td class="invalid" *ngIf="!radio.valid">choosing how you feel is required</td>               
+        </tr> 
+    </table>
+      <input type="submit"(click)="onSubmit()" name="register" class="reg">
+  </form>
+</div>
+
+
+  
+</body>
+</html>
+
